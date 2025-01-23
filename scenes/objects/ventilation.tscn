@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh1ih5es1h4aw"]
+
+[ext_resource type="Texture2D" uid="uid://bpst5oe6csuwb" path="res://resources/graphics/objects/ventilation_surface.png" id="1_04gwc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2ohf"]
+size = Vector2(46, 46)
+
+[node name="Ventilation" type="StaticBody2D"]
+
+[node name="VentilationSurface" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_04gwc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g2ohf")

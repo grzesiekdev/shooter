@@ -14,5 +14,3 @@ position = Vector2(450, 289)
 rotation = 1.48436
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
-[connection signal="grenade_shot" from="Player" to="." method="_on_player_grenade_shot"]
-[connection signal="laser_shot" from="Player" to="." method="_on_player_laser_shot"]
