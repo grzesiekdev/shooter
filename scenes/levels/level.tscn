@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dbmi2w8vmwkad"]
+[gd_scene load_steps=19 format=4 uid="uid://dbmi2w8vmwkad"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_3cjyf"]
 [ext_resource type="Texture2D" uid="uid://b5i6qamkpvsbb" path="res://resources/graphics/ground/stones.png" id="2_vfy1w"]
@@ -10,6 +10,27 @@
 [ext_resource type="Texture2D" uid="uid://goj6tdsw17mo" path="res://resources/graphics/decals/moss/moss_4.png" id="6_bx7aq"]
 [ext_resource type="Texture2D" uid="uid://swgggk3g32ge" path="res://resources/graphics/decals/moss/moss_5.png" id="7_6eir7"]
 [ext_resource type="Texture2D" uid="uid://dofchf7hx2ykj" path="res://resources/graphics/tilesets/outside_walls.png" id="8_14v0t"]
+[ext_resource type="Texture2D" uid="uid://cp80o3n2h5pt3" path="res://resources/graphics/tilesets/soil.png" id="9_a2woi"]
+[ext_resource type="PackedScene" uid="uid://bui8qtao8puoj" path="res://scenes/buildings/house.tscn" id="12_hwkqn"]
+[ext_resource type="PackedScene" uid="uid://dh1ih5es1h4aw" path="res://scenes/objects/ventilation.tscn" id="13_01koq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y4v3b"]
+resource_name = "soil"
+texture = ExtResource("9_a2woi")
+texture_region_size = Vector2i(390, 390)
+1:1/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_c550h"]
+tile_size = Vector2i(390, 390)
+sources/0 = SubResource("TileSetAtlasSource_y4v3b")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rh1hj"]
 resource_name = "walls"
@@ -26,9 +47,25 @@ texture_region_size = Vector2i(390, 390)
 2:2/0 = 0
 0:3/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_babm1"]
+resource_name = "soil"
+texture = ExtResource("9_a2woi")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_x0co8"]
 tile_size = Vector2i(390, 390)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rh1hj")
+sources/1 = SubResource("TileSetAtlasSource_babm1")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_3cjyf")
@@ -41,7 +78,7 @@ texture_repeat = 2
 position = Vector2(-380, -81)
 texture = ExtResource("2_vfy1w")
 region_enabled = true
-region_rect = Rect2(0, 0, 10000, 10000)
+region_rect = Rect2(0, 0, 100000, 100000)
 
 [node name="Decoration" type="Sprite2D" parent="Ground"]
 modulate = Color(0.713726, 1, 0.929412, 0.823529)
@@ -64,12 +101,20 @@ texture = ExtResource("6_bx7aq")
 position = Vector2(-301, 285)
 texture = ExtResource("7_6eir7")
 
+[node name="TileMapLayer2" type="TileMapLayer" parent="Ground"]
+tile_map_data = PackedByteArray("AAD//wEAAAABAAEAAAD+/wQAAAABAAEAAAD//wQAAAABAAEAAAD//wMAAAABAAEAAAD+/wMAAAABAAEAAAD8////AAABAAIAAAD7////AAABAAIAAAD6////AAABAAIAAAD5////AAABAAIAAAD4////AAABAAIAAAD3////AAABAAIAAAD2////AAABAAIAAAD1////AAABAAIAAAD0////AAABAAIAAADz////AAABAAIAAADy////AAABAAIAAADy//z/AAABAAEAAADy//3/AAABAAEAAADy//7/AAABAAEAAADz//z/AAABAAEAAADz//3/AAABAAEAAADz//7/AAABAAEAAAD0//z/AAABAAEAAAD0//3/AAABAAEAAAD0//7/AAABAAEAAAD1//z/AAABAAEAAAD1//3/AAABAAEAAAD1//7/AAABAAEAAAD2//z/AAABAAEAAAD2//3/AAABAAEAAAD2//7/AAABAAEAAAD3//z/AAABAAEAAAD3//3/AAABAAEAAAD3//7/AAABAAEAAAD4//z/AAABAAEAAAD4//3/AAABAAEAAAD4//7/AAABAAEAAAD5//z/AAABAAEAAAD5//3/AAABAAEAAAD5//7/AAABAAEAAAD6//z/AAABAAEAAAD6//3/AAABAAEAAAD6//7/AAABAAEAAAD7//z/AAABAAEAAAD7//3/AAABAAEAAAD7//7/AAABAAEAAAD8//z/AAABAAEAAAD8//3/AAABAAEAAAD8//7/AAABAAEAAAAEAPz/AAABAAEAAAAEAP3/AAABAAEAAAAEAP7/AAABAAEAAAAFAPz/AAABAAEAAAAFAP3/AAABAAEAAAAFAP7/AAABAAEAAAAGAPz/AAABAAEAAAAGAP3/AAABAAEAAAAGAP7/AAABAAEAAAAHAPz/AAABAAEAAAAHAP3/AAABAAEAAAAHAP7/AAABAAEAAAAIAPz/AAABAAEAAAAIAP3/AAABAAEAAAAIAP7/AAABAAEAAAAJAPz/AAABAAEAAAAJAP3/AAABAAEAAAAJAP7/AAABAAEAAAAKAPz/AAABAAEAAAAKAP3/AAABAAEAAAAKAP7/AAABAAEAAAALAPz/AAABAAEAAAALAP3/AAABAAEAAAALAP7/AAABAAEAAAAMAPz/AAABAAEAAAAMAP3/AAABAAEAAAAMAP7/AAABAAEAAAAEAP//AAABAAIAAAAFAP//AAABAAIAAAAGAP//AAABAAIAAAAHAP//AAABAAIAAAAIAP//AAABAAIAAAAJAP//AAABAAIAAAAKAP//AAABAAIAAAALAP//AAABAAIAAAAMAP//AAABAAIAAAA=")
+tile_set = SubResource("TileSet_c550h")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="Ground"]
 position = Vector2(-424, -256)
-tile_map_data = PackedByteArray("AAAAAAIAAAABAAAAAAABAAIAAAABAAAAAAACAAIAAAACAAAAAAD//wIAAAABAAEAAAD//wMAAAAAAAIAAAD//wQAAAAAAAIAAAD//wUAAAABAAIAAAAAAAUAAAACAAIAAAAAAAQAAAABAAEAAAABAAQAAAABAAAAAAACAAQAAAABAAAAAAADAAQAAAACAAIAAAADAAMAAAAAAAEAAAD9////AAABAAAAAAD8////AAABAAAAAAD7////AAABAAAAAAD6////AAABAAAAAAD5////AAABAAAAAAD4////AAABAAAAAAD3////AAABAAAAAAD2////AAABAAAAAAD1////AAABAAAAAAD0////AAABAAAAAADz////AAABAAAAAAAFAP//AAABAAAAAAAGAP//AAABAAAAAAAHAP//AAABAAAAAAAIAP//AAABAAAAAAAJAP//AAABAAAAAAAKAP//AAABAAAAAAALAP//AAABAAAAAAAMAP//AAABAAAAAAANAP//AAABAAAAAAAOAP//AAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAIAAAABAAAAAAABAAIAAAABAAAAAAACAAIAAAACAAAAAAD//wIAAAABAAEAAAD//wMAAAAAAAIAAAD//wQAAAAAAAIAAAD//wUAAAABAAIAAAAAAAUAAAACAAIAAAAAAAQAAAABAAEAAAABAAQAAAABAAAAAAACAAQAAAABAAAAAAADAAQAAAACAAIAAAADAAMAAAAAAAEAAAD9////AAABAAAAAAD8////AAABAAAAAAD7////AAABAAAAAAD6////AAABAAAAAAD5////AAABAAAAAAD4////AAABAAAAAAD3////AAABAAAAAAD2////AAABAAAAAAD1////AAABAAAAAAD0////AAABAAAAAADz////AAABAAAAAAAFAP//AAABAAAAAAAGAP//AAABAAAAAAAHAP//AAABAAAAAAAIAP//AAABAAAAAAAJAP//AAABAAAAAAAKAP//AAABAAAAAAALAP//AAABAAAAAAAMAP//AAABAAAAAAANAP//AAABAAAAAAAOAP//AAABAAAAAAACAAAAAQACAAIAAAABAAAAAQABAAIAAAAAAAAAAQAAAAIAAAA=")
 tile_set = SubResource("TileSet_x0co8")
 
 [node name="Gate" parent="." instance=ExtResource("3_0ow3h")]
+
+[node name="House" parent="." instance=ExtResource("12_hwkqn")]
+position = Vector2(3949, 2216)
+rotation = -3.14159
 
 [node name="Player" parent="." instance=ExtResource("4_602ne")]
 position = Vector2(450, 289)
@@ -81,6 +126,12 @@ position_smoothing_enabled = true
 position_smoothing_speed = 40.0
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Ventilation" parent="." instance=ExtResource("13_01koq")]
+position = Vector2(2691, 804)
+
+[node name="Ventilation2" parent="." instance=ExtResource("13_01koq")]
+position = Vector2(107, 242)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="grenade_shot" from="Player" to="." method="_on_player_grenade_shot"]

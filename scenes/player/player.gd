@@ -10,7 +10,7 @@ func _process(_delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	var player_direction = (get_global_mouse_position() - position).normalized()
 	
-	velocity = direction * 600
+	velocity = direction * 1200
 	move_and_slide()
 	
 	look_at(get_global_mouse_position())
@@ -21,6 +21,7 @@ func _process(_delta):
 		can_shoot = false
 		$ShootTimer.start()
 		laser_shot.emit(selected_laser.global_position, player_direction)
+		$LaserStartPositions/LaserParticlesEmitter.emitting = true
 	
 	if Input.is_action_just_pressed("secondary action") and can_grenade:
 		var grenade_marker = $GrenadeStartPosition.get_child(0)

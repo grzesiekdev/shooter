@@ -1,15 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://dh1ih5es1h4aw"]
+[gd_scene load_steps=7 format=3 uid="uid://dh1ih5es1h4aw"]
 
 [ext_resource type="Texture2D" uid="uid://bpst5oe6csuwb" path="res://resources/graphics/objects/ventilation_surface.png" id="1_04gwc"]
+[ext_resource type="Texture2D" uid="uid://gukel8kasxcs" path="res://resources/graphics/decals/white.png" id="2_ex1id"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2ohf"]
 size = Vector2(46, 46)
 
+[sub_resource type="Gradient" id="Gradient_r6joh"]
+colors = PackedColorArray(1, 1, 1, 0.623529, 0.294118, 0.294118, 0.294118, 0.952941)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f3snk"]
+gradient = SubResource("Gradient_r6joh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_npbnb"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 20, 1)
+angle_min = 720.0
+angle_max = 720.0
+gravity = Vector3(50, -45, 0)
+scale_min = 0.4
+scale_max = 0.9
+color = Color(0.93408, 0.93408, 0.93408, 0.129412)
+color_ramp = SubResource("GradientTexture1D_f3snk")
+
 [node name="Ventilation" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g2ohf")
 
 [node name="VentilationSurface" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_04gwc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_g2ohf")
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 400
+process_material = SubResource("ParticleProcessMaterial_npbnb")
+texture = ExtResource("2_ex1id")
+lifetime = 1.5

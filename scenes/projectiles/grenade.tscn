@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://crfuqa3oxsswa"]
+[gd_scene load_steps=6 format=3 uid="uid://crfuqa3oxsswa"]
 
 [ext_resource type="Texture2D" uid="uid://0w8ia0ufqgvg" path="res://resources/graphics/projectiles/grenade.png" id="1_e3mo4"]
 [ext_resource type="Script" path="res://scenes/projectiles/grenade.gd" id="1_igsht"]
@@ -10,7 +10,12 @@ bounce = 0.8
 [sub_resource type="CircleShape2D" id="CircleShape2D_aoy52"]
 radius = 15.0333
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_atvpx"]
+polygon = PackedVector2Array(4, -14, 11, -10, 14, -4, 14, 5, 11, 11, 6, 14, 1, 15, -6, 14, -13, 8, -15, 1, -14, -6, -10, -11, -3, -15)
+
 [node name="Grenade" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_g425v")
 gravity_scale = 0.0
 linear_damp = 1.6
@@ -22,3 +27,6 @@ texture = ExtResource("1_e3mo4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_aoy52")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_atvpx")
