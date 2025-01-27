@@ -133,6 +133,10 @@ position = Vector2(2691, 804)
 [node name="Ventilation2" parent="." instance=ExtResource("13_01koq")]
 position = Vector2(107, 242)
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(1, 1, 1, 0.188235)
+blend_mode = 1
+
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="grenade_shot" from="Player" to="." method="_on_player_grenade_shot"]
 [connection signal="laser_shot" from="Player" to="." method="_on_player_laser_shot"]
