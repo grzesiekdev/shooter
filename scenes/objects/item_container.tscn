@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd5lj4k0s52e"]
+
+[ext_resource type="Script" path="res://scenes/objects/item_container.gd" id="1_70wkq"]
+
+[sub_resource type="GDScript" id="GDScript_y1w50"]
+script/source = "extends Sprite2D
+"
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_70wkq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+script = SubResource("GDScript_y1w50")
