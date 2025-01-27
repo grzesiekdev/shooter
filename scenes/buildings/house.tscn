@@ -1,5 +1,6 @@
-[gd_scene load_steps=35 format=4 uid="uid://bui8qtao8puoj"]
+[gd_scene load_steps=36 format=4 uid="uid://bui8qtao8puoj"]
 
+[ext_resource type="Script" path="res://scenes/buildings/house.gd" id="1_0m2hw"]
 [ext_resource type="Texture2D" uid="uid://bod042dfbfj2x" path="res://resources/graphics/tilesets/interior.png" id="1_t2fjs"]
 [ext_resource type="PackedScene" uid="uid://dxv0d4e4suu3v" path="res://scenes/objects/simple_light.tscn" id="2_r0fet"]
 [ext_resource type="PackedScene" uid="uid://cwqos6hd444pq" path="res://scenes/objects/wall_lamp.tscn" id="3_t4mdf"]
@@ -220,6 +221,7 @@ sources/0 = SubResource("TileSetAtlasSource_63oya")
 
 [node name="House" type="Area2D"]
 collision_layer = 4
+script = ExtResource("1_0m2hw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(388.5, 770.5)
@@ -259,3 +261,6 @@ position = Vector2(701, 1489)
 [node name="LightFanAnimation" parent="." instance=ExtResource("4_fc13r")]
 position = Vector2(773, 321)
 frame_progress = 0.81289
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
