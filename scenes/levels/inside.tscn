@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://b24qojd8ecumo" path="res://resources/graphics/ground/dirt.png" id="2_8pqsc"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_pnfvx"]
 [ext_resource type="TileSet" uid="uid://cvvyh1raept0y" path="res://scenes/buildings/tileSets/floor.tres" id="3_if7v5"]
-[ext_resource type="PackedScene" uid="uid://xs77dbk3qtrh" path="res://scenes/levels/level2.tscn" id="3_yrgkn"]
 [ext_resource type="TileSet" uid="uid://b7wce7q62xtwv" path="res://scenes/buildings/tileSets/outsideWalls.tres" id="4_i0g76"]
 [ext_resource type="TileSet" uid="uid://dskh2dkg4sjtk" path="res://scenes/buildings/tileSets/insideWalls.tres" id="5_ekpqd"]
 [ext_resource type="PackedScene" uid="uid://bcmrj6jw7jlpi" path="res://scenes/objects/bed.tscn" id="6_1aj7s"]
@@ -13,13 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://dxv0d4e4suu3v" path="res://scenes/objects/simple_light.tscn" id="9_hw5dt"]
 [ext_resource type="PackedScene" uid="uid://cwqos6hd444pq" path="res://scenes/objects/wall_lamp.tscn" id="10_tg2mx"]
 [ext_resource type="PackedScene" uid="uid://dh1ih5es1h4aw" path="res://scenes/objects/ventilation.tscn" id="11_tn8vl"]
+[ext_resource type="PackedScene" uid="uid://cwm5hno8l6gnk" path="res://scenes/items/item.tscn" id="13_3gpdm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g84md"]
 size = Vector2(968, 227.5)
 
 [node name="inside" instance=ExtResource("1_elmg1")]
 script = ExtResource("2_pnfvx")
-outside_level_scene = ExtResource("3_yrgkn")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -27,7 +26,7 @@ position = Vector2(16.9999, 3.99994)
 scale = Vector2(4.91883, 4.23377)
 texture = ExtResource("2_8pqsc")
 region_enabled = true
-region_rect = Rect2(-547, -674, 1637, 1288)
+region_rect = Rect2(-547, -674, 1637, 1714)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="1"]
 position = Vector2(16.9999, 3.99994)
@@ -48,6 +47,10 @@ tile_set = ExtResource("5_ekpqd")
 
 [node name="Player" parent="." index="2"]
 position = Vector2(436, 1915)
+
+[node name="Lights" parent="." index="3"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="SimpleLight" parent="Lights" index="0" instance=ExtResource("9_hw5dt")]
 position = Vector2(-1809, -1472)
@@ -121,5 +124,9 @@ position = Vector2(-25, 219)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(432, 1967)
 shape = SubResource("RectangleShape2D_g84md")
+
+[node name="Item" parent="." index="6" instance=ExtResource("13_3gpdm")]
+position = Vector2(-728, 671)
+scale = Vector2(4.91883, 4.23377)
 
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]

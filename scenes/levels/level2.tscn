@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://xs77dbk3qtrh"]
+[gd_scene load_steps=22 format=4 uid="uid://xs77dbk3qtrh"]
 
 [ext_resource type="PackedScene" uid="uid://dbmi2w8vmwkad" path="res://scenes/levels/level.tscn" id="1_crpb6"]
 [ext_resource type="Texture2D" uid="uid://b5i6qamkpvsbb" path="res://resources/graphics/ground/stones.png" id="2_0igsa"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dd5lj4k0s52e" path="res://scenes/objects/item_container.tscn" id="13_ag6l4"]
 [ext_resource type="PackedScene" uid="uid://ctdiw6qfhsvxc" path="res://scenes/objects/toilet.tscn" id="14_fsav5"]
 [ext_resource type="PackedScene" uid="uid://1x1m4gj6ux8y" path="res://scenes/objects/box.tscn" id="15_j3m7c"]
+[ext_resource type="PackedScene" uid="uid://cwm5hno8l6gnk" path="res://scenes/items/item.tscn" id="16_6ofxj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0kp0c"]
 resource_name = "soil"
@@ -130,6 +131,9 @@ position = Vector2(-1023, 58)
 
 [node name="Box" parent="StaticObjects" index="2" instance=ExtResource("15_j3m7c")]
 position = Vector2(1726, 359)
+
+[node name="Item" parent="." index="8" instance=ExtResource("16_6ofxj")]
+position = Vector2(585, 602)
 
 [connection signal="player_entered" from="House2" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="House2" to="." method="_on_house_player_exited"]
