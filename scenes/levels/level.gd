@@ -11,13 +11,14 @@ func _on_player_laser_shot(laser_position, laser_direction) -> void:
 	laser.direction = laser_direction
 	laser.look_at(laser.global_position + laser_direction)
 	$Projectiles.add_child(laser)
+	$UI.update_laser_text()
 	
 func _on_player_grenade_shot(grenade_position, grenade_direction) -> void:
 	var grenade = grenade_scene.instantiate() as RigidBody2D
 	grenade.position = grenade_position
 	grenade.linear_velocity = grenade_direction * grenade.speed
 	$Projectiles.add_child(grenade)
-
+	$UI.update_grenade_text()
 
 func _on_house_player_entered() -> void:
 	var camera_tween: Tween = get_tree().create_tween()

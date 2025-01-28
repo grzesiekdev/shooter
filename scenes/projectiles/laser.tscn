@@ -11,6 +11,7 @@ radius = 4.0
 height = 148.0
 
 [node name="Laser" type="Area2D"]
+position = Vector2(21, 0)
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("1_2y8hu")
@@ -23,8 +24,9 @@ rotation = 1.5708
 texture = ExtResource("1_vujqe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
+position = Vector2(46, 1)
 rotation = 1.5708
+scale = Vector2(0.808733, 0.4359)
 shape = SubResource("CapsuleShape2D_2j0yw")
 
 [node name="LaserTimer" type="Timer" parent="."]
