@@ -16,9 +16,19 @@ var laser_icon: TextureRect = %LaserIcon
 @onready
 var grenade_icon: TextureRect = %GrenadeIcon
 
+@onready
+var health_bar: TextureProgressBar = %HealthBar
+
 func _ready() -> void:
+	Globals.connect("health_change", update_health_text)
+	Globals.connect("laser_amount_change", update_laser_text)
+	Globals.connect("grenade_amount_change", update_grenade_text)
 	update_laser_text()
 	update_grenade_text()
+	update_health_text()
+	
+func update_health_text():
+	health_bar.value = Globals.health
 	
 func update_laser_text():
 	laser_label.text = str(Globals.laser_amount)

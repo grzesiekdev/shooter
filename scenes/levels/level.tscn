@@ -26,8 +26,9 @@ position_smoothing_speed = 40.0
 
 [node name="StaticObjects" type="Node2D" parent="."]
 
+[node name="Items" type="Node2D" parent="."]
+
 [node name="UI" parent="." instance=ExtResource("3_gxwl0")]
 
 [connection signal="grenade_shot" from="Player" to="." method="_on_player_grenade_shot"]
 [connection signal="laser_shot" from="Player" to="." method="_on_player_laser_shot"]
-[connection signal="update_stats" from="Player" to="." method="_on_player_update_stats"]

@@ -1,6 +1,6 @@
 extends Node2D
-
 class_name ItemContainer
 
-func hit() -> void:
-	print("I am object?")
+signal open(pos, direction)
+var opened: bool = false
+@onready var current_direction: Vector2 = Vector2.DOWN.rotated(rotation)

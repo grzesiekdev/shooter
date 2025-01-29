@@ -6,10 +6,16 @@
 script/source = "extends Sprite2D
 "
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="ItemContainer" type="StaticBody2D" groups=["Container"]]
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("1_70wkq")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BaseSprite" type="Sprite2D" parent="."]
 script = SubResource("GDScript_y1w50")
+
+[node name="LidSprite" type="Sprite2D" parent="."]
+
+[node name="SpawnPositions" type="Node2D" parent="."]
