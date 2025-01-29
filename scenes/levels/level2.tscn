@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dofchf7hx2ykj" path="res://resources/graphics/tilesets/outside_walls.png" id="9_1asjn"]
 [ext_resource type="PackedScene" uid="uid://5i3pg251fsgh" path="res://scenes/objects/gate.tscn" id="11_xpf3f"]
 [ext_resource type="PackedScene" uid="uid://bdpypqtq0jaxt" path="res://scenes/enemies/scout.tscn" id="13_r6uv5"]
-[ext_resource type="PackedScene" uid="uid://1x1m4gj6ux8y" path="res://scenes/objects/box.tscn" id="15_j3m7c"]
+[ext_resource type="PackedScene" uid="uid://cv2cxcduvkwln" path="res://scenes/enemies/bug.tscn" id="14_hix73"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0kp0c"]
 resource_name = "soil"
@@ -121,20 +121,11 @@ position = Vector2(0, -2)
 color = Color(1, 1, 1, 0.188235)
 blend_mode = 1
 
-[node name="Box" parent="StaticObjects" index="0" instance=ExtResource("15_j3m7c")]
-position = Vector2(1184, 604)
-rotation = 3.14159
-
-[node name="Box2" parent="StaticObjects" index="1" instance=ExtResource("15_j3m7c")]
-position = Vector2(908, 886)
-rotation = 3.14159
-
-[node name="Box3" parent="StaticObjects" index="2" instance=ExtResource("15_j3m7c")]
-position = Vector2(1710, 602)
-rotation = 3.14159
-
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("13_r6uv5")]
 position = Vector2(1451, 712)
+
+[node name="Bug" parent="Enemies" index="1" instance=ExtResource("14_hix73")]
+position = Vector2(-664, 763)
 
 [node name="Player" parent="." index="10"]
 position = Vector2(592, 253)
