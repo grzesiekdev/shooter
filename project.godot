@@ -29,6 +29,8 @@ window/size/initial_position_type=2
 [global_group]
 
 Container=""
+scouts=""
+Entities=""
 
 [input]
 

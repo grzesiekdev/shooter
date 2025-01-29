@@ -13,9 +13,21 @@ var grenade_amount = 5:
 	set(value):
 		grenade_amount = value
 		grenade_amount_change.emit()
-		
-var health = 60: 
+
+var player_vulnerable: bool = true
+
+var health = 100: 
 	set(value):
-		health = value
+		if (value - health) > 0:
+			health = min(value, 100)
+		elif player_vulnerable:
+			health = value
+			player_vulnerable = false
+			player_invulnerable_timer()
 		health_change.emit()
 		
+var player_position: Vector2
+
+func player_invulnerable_timer() -> void:
+	await get_tree().create_timer(0.5).timeout
+	player_vulnerable = true

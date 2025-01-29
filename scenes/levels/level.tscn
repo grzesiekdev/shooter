@@ -11,7 +11,19 @@ script = ExtResource("1_3cjyf")
 [node name="Ground" type="Node2D" parent="."]
 position = Vector2(424, 256)
 
+[node name="Decals" type="Node2D" parent="."]
+
+[node name="Infestation" type="Node2D" parent="."]
+
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="StaticObjects" type="Node2D" parent="."]
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("4_602ne")]
 position = Vector2(450, 289)
@@ -21,12 +33,6 @@ rotation = 1.48436
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 position_smoothing_speed = 40.0
-
-[node name="Lights" type="Node2D" parent="."]
-
-[node name="StaticObjects" type="Node2D" parent="."]
-
-[node name="Items" type="Node2D" parent="."]
 
 [node name="UI" parent="." instance=ExtResource("3_gxwl0")]
 
