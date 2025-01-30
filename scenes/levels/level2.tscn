@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dofchf7hx2ykj" path="res://resources/graphics/tilesets/outside_walls.png" id="9_1asjn"]
 [ext_resource type="PackedScene" uid="uid://5i3pg251fsgh" path="res://scenes/objects/gate.tscn" id="11_xpf3f"]
 [ext_resource type="PackedScene" uid="uid://bdpypqtq0jaxt" path="res://scenes/enemies/scout.tscn" id="13_r6uv5"]
-[ext_resource type="PackedScene" uid="uid://cv2cxcduvkwln" path="res://scenes/enemies/bug.tscn" id="14_hix73"]
+[ext_resource type="PackedScene" uid="uid://cmp3mf2jobdek" path="res://scenes/enemies/drone.tscn" id="14_cb5nh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0kp0c"]
 resource_name = "soil"
@@ -124,8 +124,8 @@ blend_mode = 1
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("13_r6uv5")]
 position = Vector2(1451, 712)
 
-[node name="Bug" parent="Enemies" index="1" instance=ExtResource("14_hix73")]
-position = Vector2(-664, 763)
+[node name="Drone" parent="Enemies" index="1" instance=ExtResource("14_cb5nh")]
+position = Vector2(-754, 668)
 
 [node name="Player" parent="." index="10"]
 position = Vector2(592, 253)
