@@ -14,3 +14,13 @@ func _on_house_player_entered() -> void:
 func _on_house_player_exited() -> void:
 	var camera_tween: Tween = get_tree().create_tween()
 	camera_tween.tween_property($Player/Camera2D, "zoom", Vector2(0.6, 0.6), 1)
+
+
+func _on_house_3_player_entered() -> void:
+	var camera_tween: Tween = get_tree().create_tween()
+	camera_tween.tween_property($Player/Camera2D, "zoom", Vector2(0.7, 0.7), 1)
+
+
+func _on_house_3_player_exited() -> void:
+	var camera_tween: Tween = get_tree().create_tween()
+	camera_tween.tween_property($Player/Camera2D, "zoom", Vector2(0.6, 0.6), 1)

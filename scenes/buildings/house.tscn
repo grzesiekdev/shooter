@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bui8qtao8puoj"]
+[gd_scene load_steps=11 format=4 uid="uid://bui8qtao8puoj"]
 
 [ext_resource type="Script" path="res://scenes/buildings/house.gd" id="1_0m2hw"]
 [ext_resource type="TileSet" uid="uid://cvvyh1raept0y" path="res://scenes/buildings/tileSets/floor.tres" id="2_55xc2"]
@@ -7,16 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://cwqos6hd444pq" path="res://scenes/objects/wall_lamp.tscn" id="3_t4mdf"]
 [ext_resource type="TileSet" uid="uid://dskh2dkg4sjtk" path="res://scenes/buildings/tileSets/insideWalls.tres" id="4_33kkg"]
 [ext_resource type="PackedScene" uid="uid://dad33v5ji117k" path="res://scenes/objects/light_fan_animation.tscn" id="4_fc13r"]
+[ext_resource type="PackedScene" uid="uid://1x1m4gj6ux8y" path="res://scenes/objects/box.tscn" id="8_xj3ji"]
+[ext_resource type="PackedScene" uid="uid://ctdiw6qfhsvxc" path="res://scenes/objects/toilet.tscn" id="9_urb0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyh0e"]
-size = Vector2(132.168, 656.115)
+size = Vector2(122.849, 593.478)
 
 [node name="House" type="Area2D"]
 collision_layer = 4
 script = ExtResource("1_0m2hw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(388.5, 770.5)
+position = Vector2(401, 763.5)
 scale = Vector2(15.7754, -3.19304)
 shape = SubResource("RectangleShape2D_eyh0e")
 
@@ -53,6 +55,15 @@ position = Vector2(701, 1489)
 [node name="LightFanAnimation" parent="." instance=ExtResource("4_fc13r")]
 position = Vector2(773, 321)
 frame_progress = 0.81289
+
+[node name="Box" parent="." instance=ExtResource("8_xj3ji")]
+position = Vector2(-189, -64)
+
+[node name="Box2" parent="." instance=ExtResource("8_xj3ji")]
+position = Vector2(1173, 1429)
+
+[node name="Toilet" parent="." instance=ExtResource("9_urb0o")]
+position = Vector2(936, 1443)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

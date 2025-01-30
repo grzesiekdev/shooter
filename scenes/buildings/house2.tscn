@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=4 uid="uid://c0ieij4hxi18e"]
+
+[ext_resource type="Script" path="res://scenes/buildings/house_2.gd" id="1_ibb0m"]
+[ext_resource type="TileSet" uid="uid://cvvyh1raept0y" path="res://scenes/buildings/tileSets/floor.tres" id="2_miwcd"]
+[ext_resource type="TileSet" uid="uid://b7wce7q62xtwv" path="res://scenes/buildings/tileSets/outsideWalls.tres" id="3_smdpr"]
+[ext_resource type="TileSet" uid="uid://dskh2dkg4sjtk" path="res://scenes/buildings/tileSets/insideWalls.tres" id="4_wjues"]
+[ext_resource type="PackedScene" uid="uid://dxv0d4e4suu3v" path="res://scenes/objects/simple_light.tscn" id="5_jeull"]
+[ext_resource type="PackedScene" uid="uid://cwqos6hd444pq" path="res://scenes/objects/wall_lamp.tscn" id="6_3dl6c"]
+[ext_resource type="PackedScene" uid="uid://1x1m4gj6ux8y" path="res://scenes/objects/box.tscn" id="8_blb54"]
+[ext_resource type="PackedScene" uid="uid://bcmrj6jw7jlpi" path="res://scenes/objects/bed.tscn" id="9_jvgur"]
+[ext_resource type="PackedScene" uid="uid://ctdiw6qfhsvxc" path="res://scenes/objects/toilet.tscn" id="9_ve3sk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ih46h"]
+size = Vector2(3068, 1246)
+
+[node name="House2" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_ibb0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(990, 396)
+shape = SubResource("RectangleShape2D_ih46h")
+
+[node name="Floor" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAEAAAABAAAAAAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAABAAEAAAABAAEAAAAAAAEAAAABAAEAAAD//wEAAAABAAEAAAD//wAAAAABAAEAAAADAAAAAAABAAEAAAADAP//AAABAAAAAAD/////AAABAAAAAAAAAP//AAABAAAAAAABAP//AAABAAAAAAACAP//AAABAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAEAAAD+/wEAAAAAAAEAAAADAAEAAAABAAEAAAD//wIAAAABAAIAAAAAAAIAAAABAAIAAAABAAIAAAABAAIAAAACAAIAAAABAAIAAAADAAIAAAABAAIAAAAEAAIAAAABAAIAAAAFAAIAAAABAAIAAAD+/wIAAAAAAAIAAAAGAAIAAAACAAIAAAAGAP//AAACAAAAAAAEAP//AAABAAAAAAAFAP//AAABAAAAAAAEAAAAAAABAAEAAAAFAAAAAAABAAEAAAAFAAEAAAABAAEAAAAEAAEAAAABAAEAAAAGAAAAAAABAAMAAAAGAAEAAAACAAEAAAA=")
+tile_set = ExtResource("2_miwcd")
+
+[node name="OutsideWalls" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+////AAADAAAAAAD/////AAAEAAAAAAAAAP//AAAEAAAAAAABAP//AAAEAAAAAAACAP//AAAEAAAAAAD+/wAAAAADAAEAAAD+/wEAAAADAAEAAAD+/wIAAAADAAIAAAADAP//AAAEAAAAAAACAAIAAAAEAAAAAAABAAIAAAAEAAAAAAAAAAIAAAAEAAAAAAD//wIAAAAEAAAAAAAEAP//AAAEAAAAAAAFAP//AAAEAAAAAAAEAAIAAAAEAAAAAAAFAAIAAAAEAAAAAAAGAP//AAAFAAAAAAAGAAIAAAAFAAIAAAAGAAEAAAADAAEAAAAGAAAAAAAGAAIAAAADAAIAAAAEAAAAAAA=")
+tile_set = ExtResource("3_smdpr")
+
+[node name="InsideWalls" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAEAAAADAAcAAAABAAIAAAAFAAgAAAABAP//AAAFAAYAAAAAAAEAAAACAAcAAAD//wEAAAAEAAcAAAA=")
+tile_set = ExtResource("4_wjues")
+
+[node name="SimpleLight" parent="." instance=ExtResource("5_jeull")]
+position = Vector2(42, 624)
+
+[node name="SimpleLight2" parent="." instance=ExtResource("5_jeull")]
+position = Vector2(2129, -105)
+
+[node name="SimpleLight3" parent="." instance=ExtResource("5_jeull")]
+position = Vector2(1797, 895)
+rotation = 3.14159
+
+[node name="WallLamp" parent="." instance=ExtResource("6_3dl6c")]
+position = Vector2(617, -5)
+
+[node name="Box" parent="." instance=ExtResource("8_blb54")]
+position = Vector2(316, 649)
+
+[node name="Toilet" parent="." instance=ExtResource("9_ve3sk")]
+position = Vector2(499, 664)
+
+[node name="Bed" parent="." instance=ExtResource("9_jvgur")]
+position = Vector2(926, 718)
+rotation = 3.14159
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
