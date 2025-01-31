@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://sdjlwb2b6jax"]
+[gd_scene load_steps=6 format=3 uid="uid://sdjlwb2b6jax"]
 
 [ext_resource type="Script" path="res://scenes/projectiles/laser.gd" id="1_2y8hu"]
 [ext_resource type="Texture2D" uid="uid://beaa8hhyokbop" path="res://resources/graphics/projectiles/blue.png" id="1_vujqe"]
+[ext_resource type="AudioStream" uid="uid://bngcp1p0ak0hs" path="res://resources/audio/laser.wav" id="3_cdmas"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jledy"]
 polygon = PackedVector2Array(81, 0, 78, -4, 66, -6, 49, -6, 15, -5, -5, -3, -16, -2, -38, -2, -77, -1, -77, 3, -46, 3, -9, 4, 25, 6, 66, 8, 79, 4)
@@ -33,6 +34,11 @@ shape = SubResource("CapsuleShape2D_2j0yw")
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cdmas")
+volume_db = -16.395
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]

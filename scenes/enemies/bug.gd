@@ -20,7 +20,8 @@ func _on_notice_area_body_exited(_body: Node2D) -> void:
 	
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	player_in_attack_range = true
-	body_in_range = body
+	if "hit" in body:
+		body_in_range = body
 	$AnimatedSprite.play("attack")
 
 func _on_attack_area_body_exited(_body: Node2D) -> void:
@@ -39,12 +40,12 @@ func _process(delta: float) -> void:
 func hit() -> void:
 	if not is_invulnerable:
 		health -= 10
+		$AudioStreamPlayer2D.play()
 		if health <= 0:
 			queue_free()
 			is_invulnerable = true
 		$DamageCooldown.start()
 		$AnimatedSprite.material.set_shader_parameter("progress", 0.3)
-
 
 func _on_attack_cooldown_timeout() -> void:
 	can_attack = true

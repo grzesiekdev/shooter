@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://xs77dbk3qtrh"]
+[gd_scene load_steps=36 format=4 uid="uid://xs77dbk3qtrh"]
 
 [ext_resource type="PackedScene" uid="uid://dbmi2w8vmwkad" path="res://scenes/levels/level.tscn" id="1_crpb6"]
 [ext_resource type="Texture2D" uid="uid://b5i6qamkpvsbb" path="res://resources/graphics/ground/stones.png" id="2_0igsa"]
@@ -23,7 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://1x1m4gj6ux8y" path="res://scenes/objects/box.tscn" id="21_3siyf"]
 [ext_resource type="PackedScene" uid="uid://ctdiw6qfhsvxc" path="res://scenes/objects/toilet.tscn" id="22_86axt"]
 [ext_resource type="PackedScene" uid="uid://c0ieij4hxi18e" path="res://scenes/buildings/house2.tscn" id="23_caoh2"]
-[ext_resource type="PackedScene" uid="uid://biavn0em72wke" path="res://scenes/enemies/hunter.tscn" id="24_ota2y"]
+[ext_resource type="PackedScene" uid="uid://cv2cxcduvkwln" path="res://scenes/enemies/bug.tscn" id="24_46wii"]
+[ext_resource type="PackedScene" uid="uid://cmp3mf2jobdek" path="res://scenes/enemies/drone.tscn" id="25_u78hr"]
+[ext_resource type="PackedScene" uid="uid://bdpypqtq0jaxt" path="res://scenes/enemies/scout.tscn" id="26_qwnlm"]
+[ext_resource type="PackedScene" uid="uid://bxhrhsw35w6h" path="res://scenes/enemies/car.tscn" id="27_m74ow"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0kp0c"]
 resource_name = "soil"
@@ -324,6 +327,21 @@ position = Vector2(2289, 3433)
 [node name="Toilet2" parent="StaticObjects" index="4" instance=ExtResource("22_86axt")]
 position = Vector2(5874, 1491)
 
+[node name="Drone" parent="Enemies" index="0" instance=ExtResource("25_u78hr")]
+position = Vector2(-4668, 809)
+
+[node name="Scout" parent="Enemies" index="1" instance=ExtResource("26_qwnlm")]
+position = Vector2(-709, 1699)
+
+[node name="Bug2" parent="Enemies" index="2" instance=ExtResource("24_46wii")]
+position = Vector2(5148, 1954)
+
+[node name="Bug3" parent="Enemies" index="3" instance=ExtResource("24_46wii")]
+position = Vector2(503, 3877)
+
+[node name="Drone2" parent="Enemies" index="4" instance=ExtResource("25_u78hr")]
+position = Vector2(-4399, 3434)
+
 [node name="Player" parent="." index="11"]
 position = Vector2(592, 253)
 
@@ -331,10 +349,11 @@ position = Vector2(592, 253)
 position = Vector2(-1214, 21)
 curve = SubResource("Curve2D_fjf33")
 
-[node name="Hunter" parent="." index="14" instance=ExtResource("24_ota2y")]
-position = Vector2(5014, 1976)
+[node name="Car" parent="Path2D" index="0" instance=ExtResource("27_m74ow")]
+position = Vector2(1922, 2780)
+rotation = -0.834817
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="15"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="14"]
 navigation_polygon = SubResource("NavigationPolygon_ialne")
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]

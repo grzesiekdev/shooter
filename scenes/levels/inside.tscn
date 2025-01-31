@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dd1kr6ferdkn0"]
+[gd_scene load_steps=29 format=4 uid="uid://dd1kr6ferdkn0"]
 
 [ext_resource type="PackedScene" uid="uid://dbmi2w8vmwkad" path="res://scenes/levels/level.tscn" id="1_elmg1"]
 [ext_resource type="Texture2D" uid="uid://b24qojd8ecumo" path="res://resources/graphics/ground/dirt.png" id="2_8pqsc"]
@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://dx7lrsdlarshd" path="res://resources/graphics/objects/infestation/small.png" id="15_mf6fq"]
 [ext_resource type="Texture2D" uid="uid://d3f5goefw53qj" path="res://resources/graphics/lights/textures/circle.png" id="24_3ivxp"]
 [ext_resource type="PackedScene" uid="uid://cmp3mf2jobdek" path="res://scenes/enemies/drone.tscn" id="24_mpg6d"]
+[ext_resource type="PackedScene" uid="uid://cv2cxcduvkwln" path="res://scenes/enemies/bug.tscn" id="25_vinwe"]
+[ext_resource type="PackedScene" uid="uid://bdpypqtq0jaxt" path="res://scenes/enemies/scout.tscn" id="26_80y4f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g84md"]
 size = Vector2(968, 227.5)
@@ -203,6 +205,15 @@ rotation = -1.5708
 
 [node name="Drone" parent="Enemies" index="0" instance=ExtResource("24_mpg6d")]
 position = Vector2(416, 413)
+
+[node name="Bug" parent="Enemies" index="1" instance=ExtResource("25_vinwe")]
+position = Vector2(-1650, 834)
+
+[node name="Scout" parent="Enemies" index="2" instance=ExtResource("26_80y4f")]
+position = Vector2(1624, 1833)
+
+[node name="Drone" parent="Enemies/Scout" index="6" instance=ExtResource("24_mpg6d")]
+position = Vector2(1194, -795)
 
 [node name="Player" parent="." index="9"]
 z_index = 2

@@ -24,6 +24,9 @@ func _process(delta: float) -> void:
 	rotation += rotation_speed * delta
 
 func _on_body_entered(_body: Node2D) -> void:
+	$AudioStreamPlayer2D.play()
+	visible = false
+	await $AudioStreamPlayer2D.finished
 	if type == 'laser':
 		Globals.laser_amount += 5
 	elif type == 'grenade':

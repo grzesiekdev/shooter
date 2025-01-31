@@ -7,3 +7,4 @@ func hit() -> void:
 			var pos = $SpawnPositions.get_children().pick_random().global_position
 			open.emit(pos, current_direction)
 		opened = true
+		$AudioStreamPlayer2D.play()

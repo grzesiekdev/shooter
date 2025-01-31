@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctdiw6qfhsvxc"]
+[gd_scene load_steps=6 format=3 uid="uid://ctdiw6qfhsvxc"]
 
 [ext_resource type="PackedScene" uid="uid://dd5lj4k0s52e" path="res://scenes/objects/item_container.tscn" id="1_shup2"]
 [ext_resource type="Script" path="res://scenes/objects/toilet.gd" id="2_0si24"]
 [ext_resource type="Texture2D" uid="uid://dpbdshkb5udjo" path="res://resources/graphics/objects/toilet.png" id="3_y0fxt"]
 [ext_resource type="Texture2D" uid="uid://rnu7poo501wl" path="res://resources/graphics/objects/lid.png" id="4_71dxo"]
+[ext_resource type="AudioStream" uid="uid://e5mlduh75a4y" path="res://resources/audio/solid_impact.ogg" id="5_wr87g"]
 
 [node name="Toilet" instance=ExtResource("1_shup2")]
 scale = Vector2(0.5, 0.5)
@@ -21,3 +22,6 @@ texture = ExtResource("4_71dxo")
 
 [node name="Marker2D" type="Marker2D" parent="SpawnPositions" index="0"]
 position = Vector2(0, -2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource("5_wr87g")
